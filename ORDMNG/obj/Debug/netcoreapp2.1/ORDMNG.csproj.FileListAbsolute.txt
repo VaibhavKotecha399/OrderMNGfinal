@@ -1,0 +1,14 @@
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\bin\Debug\netcoreapp2.1\ORDMNG.deps.json
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\bin\Debug\netcoreapp2.1\ORDMNG.runtimeconfig.json
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\bin\Debug\netcoreapp2.1\ORDMNG.runtimeconfig.dev.json
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\bin\Debug\netcoreapp2.1\ORDMNG.dll
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.csprojAssemblyReference.cache
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.csproj.CoreCompileInputs.cache
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.RazorAssemblyInfo.cache
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.RazorAssemblyInfo.cs
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.AssemblyInfoInputs.cache
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.AssemblyInfo.cs
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.RazorTargetAssemblyInfo.cache
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\bin\Debug\netcoreapp2.1\ORDMNG.pdb
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.dll
+C:\Users\2000081310\source\repos\ORDMNG\ORDMNG\obj\Debug\netcoreapp2.1\ORDMNG.pdb
