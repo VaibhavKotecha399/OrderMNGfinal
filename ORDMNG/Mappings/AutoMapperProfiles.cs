@@ -18,7 +18,9 @@ namespace ORDMNG.Mappings
             CreateMap<CartItemsDTO, CartItems>().ReverseMap();
             CreateMap<PaymentDTO, Payment>().ReverseMap();
             CreateMap<OrdersDTO, Orders>().ReverseMap();
-            CreateMap<OrderItemsDTO, OrderItems>().ReverseMap(); 
+            CreateMap<OrderItemsDTO, OrderItems>().ReverseMap();
+            CreateMap<ShippingDTO, Shipping>().ReverseMap();
+            CreateMap<ShipmentStgDTO, ShipmentStg>().ReverseMap();
         }
     }
 }
