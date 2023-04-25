@@ -13,65 +13,64 @@ namespace ORDMNG.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartsController : ControllerBase
+    public class OrdersController : ControllerBase
     {
         private readonly ORDMNG_81310Context _context;
         private readonly IMapper mapper;
 
-        public CartsController(ORDMNG_81310Context context,IMapper mapper)
+        public OrdersController(ORDMNG_81310Context context,IMapper mapper)
         {
             _context = context;
             this.mapper = mapper;
         }
 
-        // GET: api/Carts
+        // GET: api/Orders
         [HttpGet]
-        //public IEnumerable<Cart> GetCart()
+        //public IEnumerable<Orders> GetOrders()
         //{
-        //    return _context.Cart;
+        //    return _context.Orders;
         //}
-        public async Task <IActionResult> GetCart()
+        public async Task<IActionResult> GetAllOrders()
         {
-            var Carts = await _context.Cart.ToListAsync();
-            var cartsDTOs = mapper.Map<List<CartsDTO>>(Carts);
-            return Ok(cartsDTOs);
+            var orders = _context.Orders.ToListAsync();
+            return Ok(mapper.Map<OrdersDTO>(orders));
         }
 
-        // GET: api/Carts/5
+        // GET: api/Orders/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCart([FromRoute] int id)
+        public async Task<IActionResult> GetOrders([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var cart = await _context.Cart.FindAsync(id);
+            var orders = await _context.Orders.FindAsync(id);
 
-            if (cart == null)
+            if (orders == null)
             {
                 return NotFound();
             }
 
-            return Ok(mapper.Map<CartsDTO>(cart));
+            return Ok(mapper.Map<OrdersDTO>(orders));
         }
 
-        // PUT: api/Carts/5
+        // PUT: api/Orders/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCart([FromRoute] int id, [FromBody] CartsDTO cart)
+        public async Task<IActionResult> PutOrders([FromRoute] int id, [FromBody] OrdersDTO orders)
         {
-            var carts = mapper.Map<CartsDTO>(cart);
+            var ordermodel = mapper.Map<Orders>(orders);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != cart.CartId)
+            if (id != orders.Oid)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cart).State = EntityState.Modified;
+            _context.Entry(orders).State = EntityState.Modified;
 
             try
             {
@@ -79,7 +78,7 @@ namespace ORDMNG.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CartExists(id))
+                if (!OrdersExists(id))
                 {
                     return NotFound();
                 }
@@ -92,48 +91,48 @@ namespace ORDMNG.Controllers
             return NoContent();
         }
 
-        // POST: api/Carts
+        // POST: api/Orders
         [HttpPost]
-        public async Task<IActionResult> PostCart([FromBody] CartsDTO cartDTO)
+        public async Task<IActionResult> PostOrders([FromBody] OrdersDTO ordersdto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var cart = mapper.Map<Cart>(cartDTO);
-            await _context.Cart.AddAsync(cart);
-            var carttodto = mapper.Map<CartsDTO>(cart);
+            var orders = mapper.Map<Orders>(ordersdto);
+            await _context.Orders.AddAsync(orders);
+            var orderstodto = mapper.Map<OrdersDTO>(orders);
             await _context.SaveChangesAsync();
+            //_context.Orders.Add(orders);
+            //await _context.SaveChangesAsync();
 
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCart", new { id = cart.CartId }, cart);
+            return CreatedAtAction("GetOrders", new { id = orders.Oid }, orders);
         }
 
-        // DELETE: api/Carts/5
+        // DELETE: api/Orders/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCart([FromRoute] int id)
+        public async Task<IActionResult> DeleteOrders([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var cart = await _context.Cart.FindAsync(id);
-            if (cart == null)
+            var orders = await _context.Orders.FindAsync(id);
+            if (orders == null)
             {
                 return NotFound();
             }
 
-            _context.Cart.Remove(cart);
+            _context.Orders.Remove(orders);
             await _context.SaveChangesAsync();
 
-            return Ok(mapper.Map<CartsDTO>(cart));
+            return Ok(mapper.Map<OrdersDTO>(orders));
         }
 
-        private bool CartExists(int id)
+        private bool OrdersExists(int id)
         {
-            return _context.Cart.Any(e => e.CartId == id);
+            return _context.Orders.Any(e => e.Oid == id);
         }
     }
 }

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ORDMNG.DTO;
 using ORDMNG.Models;
 
 namespace ORDMNG.Controllers
@@ -14,23 +16,32 @@ namespace ORDMNG.Controllers
     public class CartItemsController : ControllerBase
     {
         private readonly ORDMNG_81310Context _context;
+        private readonly IMapper mapper;
 
-        public CartItemsController(ORDMNG_81310Context context)
+        public CartItemsController(ORDMNG_81310Context context, IMapper mapper)
         {
             _context = context;
+            this.mapper = mapper;
         }
 
         // GET: api/CartItems
         [HttpGet]
-        public IEnumerable<CartItems> GetCartItems()
+        //public IEnumerable<CartItems> GetCartItems()
+        //{
+        //    return _context.CartItems;
+        //}
+        public async Task<IActionResult> GetAllCartItems()
         {
-            return _context.CartItems;
+            var CartItems = await _context.CartItems.ToListAsync();
+            var cartsItemsDTOs = mapper.Map<List<CartItemsDTO>>(CartItems);
+            return Ok(cartsItemsDTOs);
         }
 
         // GET: api/CartItems/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCartItems([FromRoute] int id)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -43,13 +54,14 @@ namespace ORDMNG.Controllers
                 return NotFound();
             }
 
-            return Ok(cartItems);
+            return Ok(mapper.Map<CartItems>(cartItems));
         }
 
         // PUT: api/CartItems/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCartItems([FromRoute] int id, [FromBody] CartItems cartItems)
+        public async Task<IActionResult> PutCartItems([FromRoute] int id, [FromBody] CartItemsDTO cartItems)
         {
+            var cartItem = mapper.Map<CartsDTO>(cartItems);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -83,15 +95,17 @@ namespace ORDMNG.Controllers
 
         // POST: api/CartItems
         [HttpPost]
-        public async Task<IActionResult> PostCartItems([FromBody] CartItems cartItems)
+        public async Task<IActionResult> PostCartItems([FromBody] CartItemsDTO cartItems)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            _context.CartItems.Add(cartItems);
+            var cartItem = mapper.Map<CartItems>(cartItems);
+            await _context.CartItems.AddAsync(cartItem);
+            var carttodto = mapper.Map<CartItemsDTO>(cartItems);
             await _context.SaveChangesAsync();
+           
 
             return CreatedAtAction("GetCartItems", new { id = cartItems.CartItemId }, cartItems);
         }
@@ -114,7 +128,7 @@ namespace ORDMNG.Controllers
             _context.CartItems.Remove(cartItems);
             await _context.SaveChangesAsync();
 
-            return Ok(cartItems);
+            return Ok(mapper.Map<CartItemsDTO>(cartItems));
         }
 
         private bool CartItemsExists(int id)

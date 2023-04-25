@@ -29,9 +29,9 @@ namespace ORDMNG.Controllers
         //GET: api/Users
         [HttpGet]
         //[ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var Users = _context.Users.ToList();
+            var Users = await _context.Users.ToListAsync();
             var UsersDTO = mapper.Map<List<UsersDTO>>(Users);
             return Ok(UsersDTO);
         }
