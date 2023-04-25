@@ -32,7 +32,7 @@ namespace ORDMNG.Controllers
         //}
         public async Task<IActionResult> GetAllOrders()
         {
-            var orders = _context.Orders.ToListAsync();
+            var orders = await _context.Orders.ToListAsync();
             return Ok(mapper.Map<OrdersDTO>(orders));
         }
 
