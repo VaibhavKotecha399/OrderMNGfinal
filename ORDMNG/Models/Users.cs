@@ -19,7 +19,7 @@ namespace ORDMNG.Models
         public string UserPassword { get; set; }
         public string UserAddress { get; set; }
         public string Phone { get; set; }
-        public string UserType { get; set; }
+        public string  UserType { get; set; }
 
         public ICollection<Cart> Cart { get; set; }
         public ICollection<Orders> Orders { get; set; }

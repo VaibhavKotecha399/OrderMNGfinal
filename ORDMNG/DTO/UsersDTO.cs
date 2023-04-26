@@ -14,6 +14,6 @@ namespace ORDMNG.DTO
         public string UserPassword { get; set; }
         public string UserAddress { get; set; }
         public string Phone { get; set; }
-        public string UserType { get; set; }
+        public string[] UserType { get; set; }
     }
 }

@@ -58,32 +58,45 @@ namespace ORDMNG.Controllers
         [HttpPost]
         public async Task<IActionResult> Postusers([FromBody] UsersDTO usersDTO)
         {   //Converting DTO to Model
-            var usersmodel = new Users
-            {
-                FirstName = usersDTO.FirstName,
-                LastName = usersDTO.LastName,
-                Email = usersDTO.Email,
-                UserPassword = usersDTO.UserPassword,
-                Phone = usersDTO.Phone,
-                UserAddress = usersDTO.UserAddress,
-                UserType = usersDTO.UserType
-            };
-            //Using model to create user
-            _context.Users.Add(usersmodel);
-            await _context.SaveChangesAsync();
+            //var usersmodel = new Users
+            //{
+            //    FirstName = usersDTO.FirstName,
+            //    LastName = usersDTO.LastName,
+            //    Email = usersDTO.Email,
+            //    UserPassword = usersDTO.UserPassword,
+            //    Phone = usersDTO.Phone,
+            //    UserAddress = usersDTO.UserAddress,
+            //    UserType = usersDTO.UserType
+            //};
+            ////Using model to create user
+            //_context.Users.Add(usersmodel);
+            //await _context.SaveChangesAsync();
 
-            //Map model back to dto
-            var userdto = new UsersDTO
+            ////Map model back to dto
+            //var userdto = new UsersDTO
+            //{
+            //    FirstName = usersmodel.FirstName,
+            //    LastName = usersmodel.LastName,
+            //    Email = usersmodel.Email,
+            //    UserPassword = usersmodel.UserPassword,
+            //    Phone = usersmodel.Phone,
+            //    UserAddress = usersmodel.UserAddress,
+            //    UserType = usersmodel.UserType
+            //};
+            if (ModelState.IsValid)
             {
-                FirstName = usersmodel.FirstName,
-                LastName = usersmodel.LastName,
-                Email = usersmodel.Email,
-                UserPassword = usersmodel.UserPassword,
-                Phone = usersmodel.Phone,
-                UserAddress = usersmodel.UserAddress,
-                UserType = usersmodel.UserType
-            };
-            return CreatedAtAction(nameof(GetbyID), new { id = usersmodel.UserId }, usersmodel);
+                var usersmodel = mapper.Map<Users>(usersDTO);
+
+                await _context.Users.AddAsync(usersmodel);
+
+                var Userstodto = mapper.Map<UsersDTO>(usersmodel);
+
+
+                await _context.SaveChangesAsync();
+
+                return CreatedAtAction("GetProducts", new { id = usersmodel.UserId }, usersmodel);
+            }
+            return BadRequest(ModelState);
         }
         // PUT: api/Users/5
         [HttpPut("{id}")]
