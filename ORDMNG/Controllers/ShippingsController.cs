@@ -32,8 +32,8 @@ namespace ORDMNG.Controllers
         //}
         public async Task<IActionResult> getAllShipping()
         {
-            var shipping = await _context.Shipping.ToListAsync();
-            return Ok(mapper.Map<ShippingDTO>(shipping));
+            var shipping = await _context.Shipping.Select(e=>mapper.Map<ShippingDTO>(e)).ToListAsync();
+            return Ok(shipping);
         }
 
         // GET: api/Shippings/5
