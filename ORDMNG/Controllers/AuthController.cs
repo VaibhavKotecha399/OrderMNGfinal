@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ORDMNG.DTO;
 using ORDMNG.Models;
+using ORDMNG.Repositories;
 
 namespace ORDMNG.Controllers
 {
@@ -15,16 +16,19 @@ namespace ORDMNG.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+         
         private readonly UserManager<IdentityUser> userManager;
-        private readonly IMapper mapper;
+        private readonly ITokenRepository tokenRepository;
         private readonly ORDMNG_81310Context dbcontext;
+        private readonly IMapper mapper;
 
-
-        public AuthController(UserManager<IdentityUser> userManager)
+        public AuthController(UserManager<IdentityUser> userManager, ITokenRepository tokenRepository,  ORDMNG_81310Context dbcontext, IMapper mapper)
         {
             this.userManager = userManager;
+            this.tokenRepository = tokenRepository;
+            this.dbcontext = dbcontext;
+            this.mapper = mapper;
         }
-
 
 
         [HttpPost]
@@ -54,11 +58,30 @@ namespace ORDMNG.Controllers
         //    }
         //    return BadRequest("Something went Wrong!!!");
         //}
+        //
+        //POST:/api/Auth/Login
+        //[HttpPost]
+        //[Route("Login")]
+        //public async Task<IActionResult> Login ([FromBody] LoginRequestDTO loginRequestDTO)
+        //{
+        //   var user = await userManager.FindByEmailAsync(loginRequestDTO.Username);
+        //    if (user != null)
+        //    {
+        //      var checkPassResult=  await userManager.CheckPasswordAsync(user, loginRequestDTO.Password);
+        //        if (checkPassResult)
+        //        {
+        //            //Create token 
+        //            return Ok();
+        //        }
+        //    }
+        //    return BadRequest("Username si wrong ");
+        //}
+
         public async Task<IActionResult> Register([FromBody] UsersDTO userDto)
         {
             var identityUser = new IdentityUser
             {
-                UserName = userDto.FirstName,
+                UserName = userDto.Email,
                 Email = userDto.Email
             };
 
@@ -87,38 +110,38 @@ namespace ORDMNG.Controllers
         }
 
         //POST: /api/Auth/Login
-        //[HttpPost]
-        //[Route("Login")]
+        [HttpPost]
+        [Route("Login")]
 
-        //public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
-        //{
-        //    var user = await userManager.FindByEmailAsync(loginRequestDto.UserName);
-        //    if (user != null)
-        //    {
-        //        var checkPasswordResult = await userManager.CheckPasswordAsync(user, loginRequestDto.Password);
+        public async Task<IActionResult> Login([FromBody] LoginRequestDTO loginRequestDto)
+        {
+            var user = await userManager.FindByEmailAsync(loginRequestDto.Username);
+            if (user != null)
+            {
+                var checkPasswordResult = await userManager.CheckPasswordAsync(user, loginRequestDto.Password);
 
-        //        if (checkPasswordResult)
-        //        {
-        //            //Get roles for the User
-        //            var roles = await userManager.GetRolesAsync(user);
+                if (checkPasswordResult)
+                {
+                    //Get roles for the User
+                    var roles = await userManager.GetRolesAsync(user);
 
-        //            if (roles != null)
-        //            {
-        //                //create token
-        //                var jwtToken = tokenRepository.CreateJWTToken(user, roles.ToList());
+                    if (roles != null)
+                    {
+                        //create token
+                        var jwtToken = tokenRepository.CreateJWTToken(user, roles.ToList());
 
-        //                var response = new LoginResponseDto
-        //                {
-        //                    JwtToken = jwtToken
-        //                };
+                        var response = new LoginResponseDTO
+                        {
+                            JwtToken = jwtToken
+                        };
 
-        //                return Ok(response);
-        //            }
+                        return Ok(response);
+                    }
 
-        //        }
-        //    }
-        //    return BadRequest("Username or Password Incorrect");
-        //}
+                }
+            }
+            return BadRequest("Username or Password Incorrect");
+        }
     }
 }
 

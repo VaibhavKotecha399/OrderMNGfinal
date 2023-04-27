@@ -20,7 +20,7 @@ namespace ORDMNG.Mappings
             CreateMap<OrdersDTO, Orders>().ReverseMap();
             CreateMap<OrderItemsDTO, OrderItems>().ReverseMap();
             CreateMap<ShippingDTO, Shipping>().ReverseMap();
-            CreateMap<ShipmentStgDTO, ShipmentStg>().ReverseMap();
+           
         }
     }
 }

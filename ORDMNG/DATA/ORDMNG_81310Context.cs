@@ -21,7 +21,7 @@ namespace ORDMNG.Models
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<Products> Products { get; set; }
-        public virtual DbSet<ShipmentStg> ShipmentStg { get; set; }
+       
         public virtual DbSet<Shipping> Shipping { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
@@ -167,25 +167,7 @@ namespace ORDMNG.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ShipmentStg>(entity =>
-            {
-                entity.HasKey(e => e.ShipStg);
-
-                entity.Property(e => e.ShipArrivalLoc).HasMaxLength(50);
-
-                entity.Property(e => e.ShipCity)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.ShipDepLoc).HasMaxLength(50);
-
-                entity.Property(e => e.ShipId).HasColumnName("ShipID");
-
-                entity.HasOne(d => d.Ship)
-                    .WithMany(p => p.ShipmentStg)
-                    .HasForeignKey(d => d.ShipId)
-                    .HasConstraintName("FK__ShipmentS__ShipI__0E6E26BF");
-            });
+           
 
             modelBuilder.Entity<Shipping>(entity =>
             {

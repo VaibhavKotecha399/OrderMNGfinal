@@ -15,9 +15,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using OrderManagement1.Repositories;
 using ORDMNG.DATA;
 using ORDMNG.Mappings;
 using ORDMNG.Models;
+using ORDMNG.Repositories;
 
 namespace ORDMNG
 {
@@ -67,7 +69,7 @@ namespace ORDMNG
                 });
             });
             services.AddCors();
-            
+            services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             options.TokenValidationParameters = new TokenValidationParameters
