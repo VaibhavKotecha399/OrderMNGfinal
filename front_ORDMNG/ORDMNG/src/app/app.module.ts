@@ -9,6 +9,8 @@ import { ProductsComponent } from './products/products.component';
 import { ShipmentstatusComponent } from './shipmentstatus/shipmentstatus.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProductsComponent,
     ShipmentstatusComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,7 @@ using ORDMNG.DATA;
 using ORDMNG.Mappings;
 using ORDMNG.Models;
 using ORDMNG.Repositories;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ORDMNG
 {
@@ -59,15 +60,20 @@ namespace ORDMNG
                 options.UseSqlServer(Configuration.GetConnectionString("Database")));
             services.AddDbContext<AuthDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1", new Info { Title = "Order Management System", Version = "v1" });
+                c.AddSecurityDefinition("Bearer",
+                    new ApiKeyScheme
+                    {
+                        In = "header",
+                        Description = "Please enter into field the word 'Bearer' following by space and JWT",
+                        Name = "Authorization",
+                        Type = "apiKey"
+                    });
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>> {
+        { "Bearer", Enumerable.Empty<string>() },
+    });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
-                {
-                    Version = "v1",
-                    Title = "Implement Swagger UI",
-                    Description = "A simple example to Implement Swagger UI",
-                });
             });
             services.AddCors();
             services.AddScoped<ITokenRepository, TokenRepository>();

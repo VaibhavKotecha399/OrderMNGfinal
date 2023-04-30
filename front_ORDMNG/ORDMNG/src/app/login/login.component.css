@@ -1,15 +1,30 @@
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
-}
-.h-custom {
-height: calc(100% - 73px);
-}
-@media (max-width: 450px) {
-.h-custom {
-height: 100%;
-}
-}
+.form {
+    width: 300px;
+    transform: scale(1.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background: transparent;
+  }
+  
+  .form-control {
+    background: #fe5e54;
+    background-color: transparent;
+    color: transparent;
+  }
+  ::placeholder {
+    color: white;
+  }
+  
+  .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+  }
+  
+  button {
+    padding-top: 0%;
+    padding-bottom: 5%;
+  }
+  

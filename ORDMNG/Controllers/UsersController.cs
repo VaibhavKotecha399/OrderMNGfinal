@@ -30,6 +30,7 @@ namespace ORDMNG.Controllers
 
         //GET: api/Users
         [HttpGet]
+        [Authorize]
         //[ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> GetAll()
         {

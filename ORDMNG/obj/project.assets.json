@@ -3039,13 +3039,13 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/2.1.0": {
+      "Swashbuckle.AspNetCore/2.3.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Swashbuckle.AspNetCore.Swagger": "2.1.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "2.1.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "2.1.0"
+          "Swashbuckle.AspNetCore.Swagger": "2.3.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "2.3.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0"
         },
         "compile": {
           "lib/netstandard1.6/Swashbuckle.AspNetCore.dll": {}
@@ -3054,7 +3054,7 @@
           "lib/netstandard1.6/Swashbuckle.AspNetCore.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/2.1.0": {
+      "Swashbuckle.AspNetCore.Swagger/2.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Core": "1.0.4",
@@ -3068,14 +3068,14 @@
           "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/2.1.0": {
+      "Swashbuckle.AspNetCore.SwaggerGen/2.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.ApiExplorer": "1.0.4",
           "Microsoft.AspNetCore.Mvc.Core": "1.0.4",
           "Microsoft.AspNetCore.Mvc.DataAnnotations": "1.0.4",
           "NETStandard.Library": "1.6.1",
-          "Swashbuckle.AspNetCore.Swagger": "2.1.0",
+          "Swashbuckle.AspNetCore.Swagger": "2.3.0",
           "System.Xml.XPath": "4.0.1"
         },
         "compile": {
@@ -3085,7 +3085,7 @@
           "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/2.1.0": {
+      "Swashbuckle.AspNetCore.SwaggerUI/2.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Routing": "1.0.4",
@@ -8120,23 +8120,23 @@
         "version.txt"
       ]
     },
-    "Swashbuckle.AspNetCore/2.1.0": {
-      "sha512": "4JQVWQ9md96L+eFIml68IUKsOK5iuVzrDBHgctbqkGXOfwzY3522sdwyX1RL6lDAnx/4oWb51VAqbcU4f6QYXQ==",
+    "Swashbuckle.AspNetCore/2.3.0": {
+      "sha512": "aYScYpC8kBZXA1dp9GajZ0iehqcUXhhWLK0paDUCpBDvDF7U5vR7+11MR/W6TaxAZGMJrqUirQU2EtOkvjY7lg==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore/2.1.0",
+      "path": "swashbuckle.aspnetcore/2.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net451/Swashbuckle.AspNetCore.dll",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.dll",
-        "swashbuckle.aspnetcore.2.1.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.2.3.0.nupkg.sha512",
         "swashbuckle.aspnetcore.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.Swagger/2.1.0": {
-      "sha512": "eDMfiK7bjqxVq/IOhpQ2OY8NqpqP0qMyUWvOGo4ZjMBVmMHi8fwc/BdrlpgdWsnyuvH+wKXAOIf9vBbBjtWAJw==",
+    "Swashbuckle.AspNetCore.Swagger/2.3.0": {
+      "sha512": "GVUpq/IGk7vpcber8AQEjHtZH9YF/RcyPLL9rhkR36HQREXwfoSo68YimLhfIPdKpT0UhMg1bNpFSybPy9w1xA==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swagger/2.1.0",
+      "path": "swashbuckle.aspnetcore.swagger/2.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8144,14 +8144,14 @@
         "lib/net451/Swashbuckle.AspNetCore.Swagger.xml",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.dll",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.xml",
-        "swashbuckle.aspnetcore.swagger.2.1.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swagger.2.3.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swagger.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/2.1.0": {
-      "sha512": "6uyl1ixsetE3b2mP4PzD/kAeZkXTqDjeYLOHY9Scoe7B/UDWYuNIWUoK9Iu/vp/61YsVrwZFddxoZ10Mo9eYFg==",
+    "Swashbuckle.AspNetCore.SwaggerGen/2.3.0": {
+      "sha512": "wRVXSTaYY5K0LJoUMkXpExm/0igVy5W40a9PZbbjm9LdqqBsmYmZHElNwGE5TIGV6Sy0HJtytVVjZwZuKc9pAQ==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggergen/2.1.0",
+      "path": "swashbuckle.aspnetcore.swaggergen/2.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8159,14 +8159,14 @@
         "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.xml",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "swashbuckle.aspnetcore.swaggergen.2.1.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggergen.2.3.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggergen.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/2.1.0": {
-      "sha512": "ZujlbO4jWAXAh95zpe8egBt0AueWM2ZtHylYRKLxmZXwaGfBQN2qim/BJahG5R1k6N2dIRgDaBT2rKDq8XdUMw==",
+    "Swashbuckle.AspNetCore.SwaggerUI/2.3.0": {
+      "sha512": "URNUb0lLP4FDshwY3+UsJGcyEiYeBguFswvcS08rCRbUjvW8FsGJwHkdSpM3UZUC5b1F6sVF21kA0qju6/fgQQ==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggerui/2.1.0",
+      "path": "swashbuckle.aspnetcore.swaggerui/2.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8174,7 +8174,7 @@
         "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.xml",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll",
         "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "swashbuckle.aspnetcore.swaggerui.2.1.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggerui.2.3.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
@@ -12721,7 +12721,7 @@
       "Microsoft.IdentityModel.Tokens >= 5.2.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.9",
-      "Swashbuckle.AspNetCore >= 2.1.0",
+      "Swashbuckle.AspNetCore >= 2.3.0",
       "System.IdentityModel.Tokens.Jwt >= 5.2.1"
     ]
   },
@@ -12816,7 +12816,7 @@
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "[2.1.0, )"
+            "version": "[2.3.0, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",

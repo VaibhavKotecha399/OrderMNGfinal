@@ -1,67 +1,37 @@
-<section class="vh-100">
-    <div class="container-fluid h-custom">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            class="img-fluid" alt="Sample image">
+<body class="b1">
+  <div class="">
+    <div class="container">
+      <form  class="form  p-3 mb-3 rounded-3 hover-shadow " >
+        <div class="row g-0">
+          <div class="col  text-center p-2 mb-3 rounded-3 bg-info " style=" text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+            <span class="fs-3">Login</span>
+          </div>
         </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
-            <!-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-              <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-              <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-              </button>
-  
-              <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-              </button>
-  
-              <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-linkedin-in"></i>
-              </button>
-            </div> -->
-  
-            <!-- <div class="divider d-flex align-items-center my-4">
-              <p class="text-center fw-bold mx-3 mb-0">Or</p>
-            </div> -->
-  
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" />
-              <label class="form-label" for="form3Example3">Email address</label>
-            </div>
-  
-            <!-- Password input -->
-            <div class="form-outline mb-3">
-              <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" />
-              <label class="form-label" for="form3Example4">Password</label>
-            </div>
-  
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- Checkbox -->
-              <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                  Remember me
-                </label>
-              </div>
-              <a href="#!" class="text-body">Forgot password?</a>
-            </div>
-  
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                  class="link-danger">Register</a></p>
-            </div>
-  
-          </form>
+        <div class="row">
+          <div class="col form-group mb-3">              
+            <input type="text" class="form-control text-black" id="UserName" placeholder=Username
+            formControlName="UserName" minlength="5" maxlength="10" required>
+          </div>
         </div>
-      </div>
+        <div class="row">
+          <div class="col form-group mb-3">              
+            <input type="password" class="form-control text-black" id="Password" placeholder="Password"
+            formControlName="Password" minlength="5" maxlength="10" required >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5 offset-4">
+            <div class="d-grid">
+              <button type="submit" class="btn  mb-4 btn-floating btn-primary  text-white rounded-5" ><i class="fa fa-sign-in"> </i>  Log In</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center text-black">
+            <p>Not a member? <a routerLink="/user/registeruser">Register</a></p>
+          </div>
+        </div>  
+      </form>
     </div>
-   
-   
-  </section>
+  </div>
+</body>

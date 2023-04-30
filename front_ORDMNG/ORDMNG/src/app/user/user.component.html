@@ -1,0 +1,68 @@
+<body class="b1">
+    <div class="">
+      <div class="container">
+      <form #form="ngForm" autocomplete="off"  class="form bt1  p-3 mb-3 rounded-3 mat-card">
+        <input type="hidden" name="UserId" [value]="obj.registerData.UserId">
+        <div class="row g-0">
+          <div class="col text-center p-2 mb-3 rounded-3 bg-info">
+            <span class="fs-3">Registration</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <input name="UserFname" type="text" class="form-control text-black" id="UserFname" #UserFname="ngModel" [(ngModel)]="obj.registerData.UserFname" placeholder="UserFname"
+            minlength="3" maxlength="25" required/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <input name="UserLname" type="text" class="form-control text-black" id="UserLname" #UserLname="ngModel" [(ngModel)]="obj.registerData.UserLname" placeholder="UserLname"
+            minlength="5" maxlength="10" required/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <input name="Roles" type="text" class="form-control text-black" id="Roles" #Roles="ngModel" [(ngModel)]="obj.role" placeholder="Roles"
+            minlength="6" maxlength="10" required/>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col form-group mb-3">
+              <input name="UserContact" type="text" class="form-control text-black" id="UserContact" #UserContact="ngModel" [(ngModel)]="obj.registerData.UserContact" placeholder="UserContact"
+              minlength="6" maxlength="10" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <input name="UserCity" type="text" class="form-control text-black" id="UserCity" #UserContact="ngModel" [(ngModel)]="obj.registerData.UserCity" placeholder="UserCity"
+              minlength="6" maxlength="10" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <input name="PinCode" type="text" class="form-control text-black" id="PinCode" #UserContact="ngModel" [(ngModel)]="obj.registerData.PinCode" placeholder="PinCode"
+              minlength="6" maxlength="10" required/>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <input name="UserEmail" type="email" class="form-control text-black" id="UserEmail" #UserEmail="ngModel" [(ngModel)]="obj.registerData.UserEmail" placeholder="UserEmail" minlength="5" maxlength="20" required/>
+          </div>
+          <div class="col form-group mb-3">
+            
+            <input name="UserPassword" type="text" class="form-control text-black" id="UserPassword" #UserPassword="ngModel" [(ngModel)]="obj.registerData.UserPassword" placeholder="UserPassword"
+            minlength="10" maxlength="10" required/>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="col-4 offset-4">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary rounded-5" (click)="onSubmit(form)">Submit</button>
+            </div>
+        </div>
+        </div>  
+      </form>
+    </div>
+    </div>
+  </body>
+
